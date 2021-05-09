@@ -1,9 +1,9 @@
-import Tickers from './components/Tickers';
+import TickersPage from './pages/TickersPage/';
 
 function App() {
   return (
     <div className="App">
-      <Tickers />
+      <TickersPage />
     </div>
   );
 }
