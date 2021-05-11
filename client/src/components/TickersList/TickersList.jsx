@@ -1,16 +1,18 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import TickersItem from '../TickersItem';
 import TickersService from '../../services/tickers-service';
 import {TickersListStyle} from './TickersList.styles';
+import { useSelector, useDispatch } from 'react-redux';
 
 const service = new TickersService();
 
 const TickersList = () => {
-  const [tickers, setTickers] = useState([]);
-  
+  const tickers = useSelector(state => state.tickers);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     service.onData((dataTickers) => {
-      setTickers(dataTickers);
+      dispatch({type: "LOAD_TICKERS", payload: dataTickers});
     });
   }, []);
 
@@ -19,7 +21,6 @@ const TickersList = () => {
   
   return (
     <TickersListStyle>
-      {console.log(tickersList)}
       {tickersList}
     </TickersListStyle>
   );

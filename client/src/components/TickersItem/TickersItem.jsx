@@ -9,18 +9,18 @@ const TickersItem = ({data}) => {
 
   return (
     <TickersItemStyle>
-      <div>{ticker}</div>
-      <div>{exchange}</div>
-      <div>{price}$</div>
-      <TickerChange positive={isPossitiveChange}>
+      <div className="ticker-name">{ticker}</div>
+      <div className="ticker-exchange">{exchange}</div>
+      <div className="ticker-price">{price}$</div>
+      <TickerChange className="ticker-change" positive={isPossitiveChange}>
         {isPossitiveChange ? `+${change}` : `-${change}`}$
       </TickerChange>
-      <TickerChangePercent positive={isPossitiveChange}>
+      <TickerChangePercent className="ticker-change-percent" positive={isPossitiveChange}>
         {arrow}{change_percent}%
       </TickerChangePercent>
-      <div>{data.yield}</div>
-      <div>{dividend}</div>
-      <div>{localDate}</div>
+      <div className="ticker-yield">{data.yield}</div>
+      <div className="ticker-dividend">{dividend}</div>
+      <div className="ticker-time">{localDate}</div>
     </TickersItemStyle>
   );
 }
